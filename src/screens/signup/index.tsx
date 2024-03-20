@@ -16,6 +16,7 @@ import {
   TextInputContainer,
   IconArea,
 } from "./styles";
+
 import { useAuth } from "../../hooks/auth";
 import { isValidEmail } from "../../utils/email";
 
@@ -168,10 +169,14 @@ export function SignUp({ navigation }: any) {
         >
           <ButtonLabel>Registrar</ButtonLabel>
         </ButtonContainer>
-        <Text>Já possui uma conta?</Text>
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <ForgotPasswordLabel>Login</ForgotPasswordLabel>
-        </TouchableOpacity>
+
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Já possui uma conta?</Text>
+
+          <TouchableOpacity onPress={() => navigation.pop()}>
+            <Text style={{ color: '#5252C7' }}> Login</Text>
+          </TouchableOpacity>
+        </View>
       </Form>
 
     </Container>

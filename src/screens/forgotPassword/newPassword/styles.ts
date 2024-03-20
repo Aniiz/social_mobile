@@ -13,7 +13,7 @@ export const Form = styled.View`
   top: -55px;
   background-color: #fff;
   width: 100%;
-  padding-top: 60px;
+  padding-top: 30px;
   height: 68%;
   align-items: center;
   border-radius: 40px;
@@ -67,6 +67,7 @@ export const ButtonContainer = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+  margin-top: ${(Dimensions.get("window").height / 40)}px;
 `;
 
 export const ButtonLabel = styled.Text`
@@ -82,8 +83,7 @@ export const Text = styled.Text`
 export const ForgotPasswordLabel = styled.Text`
   color: #5252C7;
   font-size: 15px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  font-weight: bold;
 `
 
 export const ImageAreaContainer = styled.View`

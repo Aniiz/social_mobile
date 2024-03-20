@@ -1,8 +1,9 @@
-import { BackHandler, StatusBar, TouchableOpacity, View } from "react-native";
+import { BackHandler, StatusBar, TouchableOpacity, View, Dimensions } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import Feather from '@expo/vector-icons/Feather';
 import WelcomeImage from '../../assets/imgs/welcomeImage.png';
 import { useState, useCallback } from "react";
+import Login_aux from "../../components/login_aux/Login_aux";
 
 import {
   Container,
@@ -123,20 +124,25 @@ export function SignIn({ navigation }: any) {
             <Text style={{ color: 'red', marginTop: 5 }}>{passwordError}</Text>
           </View>
         )}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('TypeEmail')}>
           <ForgotPasswordLabel>ESQUECI MINHA SENHA</ForgotPasswordLabel>
         </TouchableOpacity>
-        <ButtonContainer
-          onPress={handleSignIn}
-        >
+
+        <ButtonContainer onPress={handleSignIn}>
           <ButtonLabel>LOG IN</ButtonLabel>
         </ButtonContainer>
-        <Text>Não possui uma conta?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('signUp')}>
-          <ForgotPasswordLabel>Registre-se</ForgotPasswordLabel>
-        </TouchableOpacity>
+
+        <Login_aux marginTop={Dimensions.get('window').height / 40} />
+
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Não possui uma conta?</Text>
+
+          <TouchableOpacity onPress={() => navigation.navigate('signUp')}>
+            <Text style={{ color: '#5252C7' }}> Registre-se</Text>
+          </TouchableOpacity>
+        </View>
       </Form>
 
-    </Container>
+    </Container >
   );
 }
